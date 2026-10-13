@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>EarnView — Rewards</title>
+  <meta name="description" content="EarnView rewards dashboard demo">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" data-page="home"><span class="brand-mark">E</span><span>Earn<span class="brand-light">View</span></span></a>
+      <div class="user-mini"><div class="avatar">EV</div><div><b>Guest User</b><small>Welcome to EarnView</small></div></div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-page="home"><span>⌂</span> डैशबोर्ड</button>
+        <button class="nav-item" data-page="earn"><span>✦</span> कमाई के टास्क</button>
+        <button class="nav-item" data-page="missions"><span>☑</span> मिशन</button>
+        <button class="nav-item" data-page="wallet"><span>◈</span> वॉलेट</button>
+        <button class="nav-item" data-page="referral"><span>♧</span> रेफरल</button>
+        <button class="nav-item" data-page="leaderboard"><span>♜</span> लीडरबोर्ड</button>
+        <button class="nav-item" data-page="profile"><span>◎</span> प्रोफ़ाइल</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="help-box"><b>मदद चाहिए?</b><p>सवालों के लिए सहायता सेक्शन देखें।</p><button data-page="help" class="outline-btn">सहायता खोलें ↗</button></div><small>EarnView Demo · v1.0</small></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="मेन्यू खोलें">☰</button>
+        <div class="mobile-brand"><span class="brand-mark">E</span> EarnView</div>
+        <div class="topbar-right"><span class="demo-pill">DEMO</span><button class="icon-btn" data-page="profile" aria-label="प्रोफ़ाइल">◉</button></div>
+      </header>
+
+      <section class="page active" id="page-home">
+        <div class="welcome-row"><div><p class="eyebrow">आपका डैशबोर्ड</p><h1>नमस्ते, दोस्त! <span class="wave">👋</span></h1><p class="muted">आज कुछ टास्क पूरे करने का अच्छा दिन है।</p></div><div class="date-chip" id="todayDate"></div></div>
+        <div class="hero-card"><div class="hero-copy"><span class="hero-label">आपकी EarnView यात्रा</span><h2>छोटे टास्क,<br>बड़ी उपलब्धियाँ।</h2><p>टास्क देखें, अपनी प्रगति ट्रैक करें और पॉइंट्स का डेमो बैलेंस देखें।</p><button class="primary-btn" data-page="earn">टास्क देखें <span>→</span></button></div><div class="hero-art"><div class="coin coin-one">E</div><div class="coin coin-two">★</div><div class="hero-ring"><span>EV</span></div><div class="spark spark-one">✦</div><div class="spark spark-two">✧</div></div></div>
+        <div class="section-heading"><div><h2>आपका सारांश</h2><p class="muted">यह केवल उदाहरण के लिए डेमो डेटा है।</p></div></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon purple">✦</span><span class="stat-change">डेमो</span></div><p>कुल पॉइंट्स</p><h3 id="pointsTotal">1,250 <small>pts</small></h3><div class="progress"><span style="width:62%"></span></div><small class="stat-foot">अगले स्तर तक 750 पॉइंट्स</small></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon green">✓</span><span class="stat-change">+2 आज</span></div><p>पूरे किए टास्क</p><h3 id="tasksDone">8</h3><small class="stat-foot">इस डेमो में कुल 12 टास्क</small></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon orange">♨</span><span class="stat-change">जारी रखें</span></div><p>स्ट्रीक</p><h3>3 <small>दिन</small></h3><small class="stat-foot">हर दिन वापस आना न भूलें</small></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon blue">◈</span><span class="stat-change">डेमो</span></div><p>वॉलेट बैलेंस</p><h3>₹12.50</h3><small class="stat-foot">यह असली पैसे नहीं हैं</small></article>
+        </div>
+        <div class="content-grid">
+          <div class="panel"><div class="panel-heading"><div><h2>आज के सुझाए गए टास्क</h2><p class="muted">डेमो टास्क चुनें</p></div><button class="text-btn" data-page="earn">सभी देखें →</button></div><div id="homeTasks" class="task-list"></div></div>
+          <div class="panel streak-panel"><div class="panel-heading"><div><h2>आपकी स्ट्रीक</h2><p class="muted">रोज़ सक्रिय रहें</p></div><span class="streak-emoji">🔥</span></div><div class="week-row"><div class="day done"><span>सोम</span><b>✓</b></div><div class="day done"><span>मंगल</span><b>✓</b></div><div class="day done"><span>बुध</span><b>✓</b></div><div class="day"><span>गुरु</span><b>·</b></div><div class="day"><span>शुक्र</span><b>·</b></div><div class="day"><span>शनि</span><b>·</b></div><div class="day"><span>रवि</span><b>·</b></div></div><div class="tip"><span>💡</span><p><b>टिप:</b> लगातार सक्रिय रहने से आपकी प्रगति बेहतर ट्रैक होगी।</p></div></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-earn"><div class="page-title"><p class="eyebrow">कमाई</p><h1>टास्क सेंटर</h1><p class="muted">टास्क पूरा करके डेमो पॉइंट्स जोड़ें।</p></div><div class="notice">ℹ️ यह वेबसाइट अभी फ्रंटएंड डेमो है। पॉइंट्स केवल इसी ब्राउज़र में अस्थायी रूप से बदलते हैं; असली भुगतान या विज्ञापन सिस्टम जुड़ा नहीं है।</div><div class="filter-row"><button class="filter-chip selected" data-filter="all">सभी टास्क</button><button class="filter-chip" data-filter="daily">दैनिक</button><button class="filter-chip" data-filter="bonus">बोनस</button></div><div id="allTasks" class="task-grid"></div></section>
+
+      <section class="page" id="page-missions"><div class="page-title"><p class="eyebrow">लक्ष्य</p><h1>मिशन और उपलब्धियाँ</h1><p class="muted">छोटे लक्ष्य पूरे करें और अपनी प्रगति देखें।</p></div><div class="mission-grid"><article class="mission-card"><span class="mission-icon purple">🎯</span><div><h3>पहला कदम</h3><p>एक डेमो टास्क पूरा करें</p><div class="progress"><span id="missionProgress" style="width:0%"></span></div><small id="missionLabel">0/1 पूरा</small></div><span class="reward">+50 pts</span></article><article class="mission-card"><span class="mission-icon orange">🔥</span><div><h3>लगातार सक्रिय</h3><p>अपनी 3-दिन की स्ट्रीक बनाए रखें</p><div class="progress"><span style="width:60%"></span></div><small>3/5 दिन</small></div><span class="reward">+100 pts</span></article><article class="mission-card"><span class="mission-icon green">🏆</span><div><h3>टास्क मास्टर</h3><p>5 टास्क पूरे करें</p><div class="progress"><span id="masterProgress" style="width:0%"></span></div><small id="masterLabel">0/5 पूरे</small></div><span class="reward">+150 pts</span></article></div></section>
+
+      <section class="page" id="page-wallet"><div class="page-title"><p class="eyebrow">आपके पॉइंट्स</p><h1>वॉलेट</h1><p class="muted">अपना डेमो बैलेंस और गतिविधि देखें।</p></div><div class="wallet-hero"><div><span>कुल डेमो बैलेंस</span><h2 id="walletBalance">₹12.50</h2><p>1,250 पॉइंट्स · उदाहरण दर ₹0.01 प्रति पॉइंट</p></div><div class="wallet-symbol">₹</div></div><div class="notice">🔒 निकासी सुविधा अभी सक्रिय नहीं है। वास्तविक पैसे भेजने के लिए सत्यापित बैकएंड, भुगतान प्रदाता और सुरक्षा जाँच आवश्यक हैं।</div><div class="panel"><div class="panel-heading"><div><h2>हाल की गतिविधि</h2><p class="muted">इस ब्राउज़र के डेमो इवेंट</p></div></div><div id="activityList" class="activity-list"><div class="activity-row"><span class="activity-icon green">✓</span><div><b>स्वागत बोनस</b><small>डेमो बैलेंस</small></div><strong>+1,250 pts</strong></div></div></div></section>
+
+      <section class="page" id="page-referral"><div class="page-title"><p class="eyebrow">दोस्तों को बुलाएँ</p><h1>रेफरल प्रोग्राम</h1><p class="muted">डेमो रेफरल कोड कॉपी करें।</p></div><div class="referral-card"><div class="referral-illustration">♧</div><h2>दोस्तों के साथ EarnView शेयर करें</h2><p>जब असली रेफरल सिस्टम जोड़ा जाएगा, तो यहाँ आपकी रेफरल प्रगति दिखाई जाएगी।</p><div class="code-box"><span id="refCode">EARNVIEW-DEMO</span><button class="primary-btn" id="copyCode">कोड कॉपी करें</button></div><small id="copyMessage">यह उदाहरण कोड है; अभी ट्रैकिंग चालू नहीं है।</small></div></section>
+
+      <section class="page" id="page-leaderboard"><div class="page-title"><p class="eyebrow">समुदाय</p><h1>लीडरबोर्ड</h1><p class="muted">उदाहरण के लिए डेमो रैंकिंग।</p></div><div class="panel"><div class="panel-heading"><div><h2>इस सप्ताह के टॉप यूज़र्स</h2><p class="muted">काल्पनिक डेमो डेटा</p></div><span class="demo-pill">DEMO</span></div><div class="leader-row"><span class="rank gold">1</span><span class="leader-avatar">AK</span><div class="leader-info"><b>अमन कुमार</b><small>स्तर 8</small></div><strong>4,820 pts</strong></div><div class="leader-row"><span class="rank silver">2</span><span class="leader-avatar">PS</span><div class="leader-info"><b>प्रिया शर्मा</b><small>स्तर 6</small></div><strong>3,950 pts</strong></div><div class="leader-row"><span class="rank bronze">3</span><span class="leader-avatar">RV</span><div class="leader-info"><b>राहुल वर्मा</b><small>स्तर 5</small></div><strong>3,120 pts</strong></div><div class="leader-row current"><span class="rank">8</span><span class="leader-avatar">EV</span><div class="leader-info"><b>आप (Guest User)</b><small>स्तर 2</small></div><strong id="leaderPoints">1,250 pts</strong></div></div></section>
+
+      <section class="page" id="page-profile"><div class="page-title"><p class="eyebrow">आपका अकाउंट</p><h1>प्रोफ़ाइल</h1><p class="muted">डेमो प्रोफ़ाइल जानकारी।</p></div><div class="profile-card"><div class="profile-avatar">EV</div><h2>Guest User</h2><p class="muted">guest@earnview.demo</p><div class="profile-details"><div><span>यूज़र आईडी</span><b>EV-DEMO-001</b></div><div><span>मेंबरशिप</span><b>डेमो सदस्य</b></div><div><span>कुल पॉइंट्स</span><b id="profilePoints">1,250 pts</b></div></div><button class="outline-btn" id="resetDemo">डेमो डेटा रीसेट करें</button></div></section>
+
+      <section class="page" id="page-help"><div class="page-title"><p class="eyebrow">सहायता</p><h1>अक्सर पूछे जाने वाले सवाल</h1><p class="muted">डेमो साइट के बारे में जानकारी।</p></div><div class="faq-list"><details open><summary>क्या अभी असली पैसे कमा सकते हैं?</summary><p>नहीं। यह शुरुआती फ्रंटएंड डेमो है। वास्तविक कमाई, विज्ञापन, यूज़र अकाउंट और भुगतान के लिए अलग बैकएंड और उचित सेवा एकीकरण चाहिए।</p></details><details><summary>क्या मेरा बैलेंस सुरक्षित है?</summary><p>यह वास्तविक बैलेंस नहीं है। डेमो पॉइंट्स केवल इस ब्राउज़र में स्थानीय रूप से रखे जाते हैं।</p></details><details><summary>वेबसाइट को आगे कैसे बढ़ाएँ?</summary><p>पहले डिज़ाइन जाँचें। उसके बाद सुरक्षित लॉगिन, डेटाबेस, टास्क वेरिफिकेशन और भुगतान प्रणाली अलग से बनानी होगी।</p></details></div></section>
+      <footer class="footer"><span>© 2026 EarnView</span><span>वेबसाइट डेमो · वास्तविक कमाई/भुगतान सक्रिय नहीं</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
